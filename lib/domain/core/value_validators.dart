@@ -12,8 +12,8 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
 }
 
 Either<ValueFailure<String>, String> validatePassword(String input) {
-  const int MINIMUM_PASSWORD_LENGTH = 6;
-  if (input.length >= MINIMUM_PASSWORD_LENGTH) {
+  const int minimumPasswordLength = 6;
+  if (input.length >= minimumPasswordLength) {
     return right(input);
   } else {
     return left(ValueFailure.shortPassword(failedValue: input));
