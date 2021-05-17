@@ -25,6 +25,13 @@ abstract class ValueObject<T> {
     return o is ValueObject<T> && o.value == value;
   }
 
+  Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
+    return value.fold(
+      (l) => left(l),
+      (r) => right(unit),
+    );
+  }
+
   @override
   int get hashCode => value.hashCode;
 
