@@ -21,7 +21,7 @@ class _$NoteDtoTearOff {
   const _$NoteDtoTearOff();
 
   _NoteDto call(
-      {@JsonKey(ignore: true) String id = 1,
+      {@JsonKey(ignore: true) String id = " ",
       required String body,
       required int color,
       required List<TodoItemDto> todos,
@@ -170,7 +170,7 @@ class __$NoteDtoCopyWithImpl<$Res> extends _$NoteDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_NoteDto extends _NoteDto {
   const _$_NoteDto(
-      {@JsonKey(ignore: true) this.id = 1,
+      {@JsonKey(ignore: true) this.id = " ",
       required this.body,
       required this.color,
       required this.todos,

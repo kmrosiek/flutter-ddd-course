@@ -16,7 +16,7 @@ abstract class NoteDto implements _$NoteDto {
   const NoteDto._();
 
   const factory NoteDto({
-    @Default(1) @JsonKey(ignore: true) String id,
+    @Default(" ") @JsonKey(ignore: true) String id,
     required String body,
     required int color,
     required List<TodoItemDto> todos,
