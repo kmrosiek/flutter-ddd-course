@@ -48,13 +48,19 @@ abstract class NoteDto implements _$NoteDto {
   }
 
   factory NoteDto.fromJson(Map<String, dynamic> json) =>
-      _$NoteDtoFromJson(json);
+      _$N2oteDtoFromJson(json);
 
   factory NoteDto.fromFirestore(DocumentSnapshot<Map<String, dynamic>> doc) {
-    // Does it really work?
-    final Map<String, dynamic> data = doc.data() ?? <String, dynamic>{};
-    return NoteDto.fromJson(data).copyWith(id: doc.id);
+    // Is this check necessary? Can doc.data() ever be null?
+    return doc.data() == null
+        ? NoteDto.fromDomain(
+            Note.empty().copyWith(body: NoteBody("Firestore error")))
+        : NoteDto.fromJson(doc.data()!).copyWith(id: doc.id);
   }
+}
+
+NoteDto _$N2oteDtoFromJson(Map<String, Object?> json) {
+  return _NoteDto.fromJson(json);
 }
 
 class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
