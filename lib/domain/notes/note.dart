@@ -26,6 +26,10 @@ abstract class Note implements _$Note {
         todos: List3(emptyList()),
       );
 
+  bool get isValid {
+    return failureOption.isNone();
+  }
+
   Option<ValueFailure<dynamic>> get failureOption {
     return body.failureOrUnit
         .andThen(todos.failureOrUnit)
