@@ -6,6 +6,7 @@ import 'package:dddcourse/application/notes/note_watcher/note_watcher_bloc.dart'
 import 'package:dddcourse/domain/notes/note.dart';
 import 'package:dddcourse/injection.dart';
 import 'package:dddcourse/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
+import 'package:dddcourse/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
 import 'package:dddcourse/presentation/routes/router.gr.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
@@ -63,9 +64,7 @@ class NotesOverviewPage extends StatelessWidget {
                 context.read<AuthBloc>().add(const AuthEvent.signedOut());
               },
             ),
-            actions: <Widget>[
-              //UncompletedSwitch(),
-            ],
+            actions: <Widget>[UncompletedSwitch()],
           ),
           body: NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
