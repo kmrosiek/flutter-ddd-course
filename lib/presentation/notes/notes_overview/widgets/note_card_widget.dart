@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
 import 'package:dddcourse/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:dddcourse/domain/notes/note.dart';
 import 'package:dddcourse/domain/notes/todo_item.dart';
@@ -20,7 +21,8 @@ class NoteCard extends StatelessWidget {
       color: note.color.getOrCrash(),
       child: InkWell(
         onTap: () {
-          //AutoRouter.of(context).replace(const NoteFormPageRoute()),
+          AutoRouter.of(context)
+              .push(NoteFormPageRoute(editedNoteOption: some(note)));
         },
         onLongPress: () {
           final noteActorBloc = getIt<NoteActorBloc>();

@@ -1,10 +1,12 @@
 import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
 import 'package:dddcourse/application/auth/auth_bloc.dart';
 import 'package:dddcourse/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:dddcourse/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:dddcourse/domain/notes/note.dart';
 import 'package:dddcourse/injection.dart';
+import 'package:dddcourse/presentation/notes/note_form/note_form_page.dart';
 import 'package:dddcourse/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:dddcourse/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
 import 'package:dddcourse/presentation/routes/router.gr.dart';
@@ -70,7 +72,8 @@ class NotesOverviewPage extends StatelessWidget {
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               //ExtendedNavigator.of(context).pushNoteFormPage(editedNote: null);
-              //AutoRouter.of(context).replace(const SignInPageRoute()),
+              AutoRouter.of(context)
+                  .push(NoteFormPageRoute(editedNoteOption: none()));
             },
             child: const Icon(Icons.add),
           ),
