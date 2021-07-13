@@ -1,5 +1,6 @@
-/*import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:another_flushbar/flushbar_helper.dart';
 import 'package:dddcourse/application/notes/note_form/note_form_bloc.dart';
+import 'package:dddcourse/domain/notes/value_objects.dart';
 import 'package:dddcourse/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +9,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:implicitly_animated_reorderable_list/implicitly_animated_reorderable_list.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:provider/provider.dart';
+import 'package:dddcourse/presentation/notes/note_form/misc/build_context_x.dart';
 
 class TodoList extends StatelessWidget {
   const TodoList({Key? key}) : super(key: key);
@@ -41,7 +43,7 @@ class TodoList extends StatelessWidget {
             onReorderFinished: (item, from, to, newItems) {
               context.formTodos = newItems.toImmutableList();
               context
-                  .bloc<NoteFormBloc>()
+                  .read<NoteFormBloc>()
                   .add(NoteFormEvent.todosChanged(context.formTodos));
             },
             itemBuilder: (context, itemAnimation, item, index) {
@@ -94,7 +96,7 @@ class TodoTile extends HookWidget {
           onTap: () {
             context.formTodos = context.formTodos.minusElement(todo);
             context
-                .bloc<NoteFormBloc>()
+                .read<NoteFormBloc>()
                 .add(NoteFormEvent.todosChanged(context.formTodos));
           },
         ),
@@ -116,11 +118,11 @@ class TodoTile extends HookWidget {
                 onChanged: (value) {
                   context.formTodos = context.formTodos.map(
                     (listTodo) => listTodo == todo
-                        ? todo.copyWith(done: value)
+                        ? todo.copyWith(done: value ?? false)
                         : listTodo,
                   );
                   context
-                      .bloc<NoteFormBloc>()
+                      .read<NoteFormBloc>()
                       .add(NoteFormEvent.todosChanged(context.formTodos));
                 },
               ),
@@ -129,7 +131,7 @@ class TodoTile extends HookWidget {
               ),
               title: TextFormField(
                 controller: textEditingController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   hintText: 'Todo',
                   counterText: '',
                   border: InputBorder.none,
@@ -142,12 +144,12 @@ class TodoTile extends HookWidget {
                         : listTodo,
                   );
                   context
-                      .bloc<NoteFormBloc>()
+                      .read<NoteFormBloc>()
                       .add(NoteFormEvent.todosChanged(context.formTodos));
                 },
                 validator: (_) {
                   return context
-                      .bloc<NoteFormBloc>()
+                      .read<NoteFormBloc>()
                       .state
                       .note
                       .todos
@@ -174,4 +176,3 @@ class TodoTile extends HookWidget {
     );
   }
 }
-*/
