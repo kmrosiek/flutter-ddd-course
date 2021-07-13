@@ -47,13 +47,6 @@ class NoteFormPage extends StatelessWidget {
                   ).show(context);
                 },
                 (_) {
-                  //ExtendedNavigator.of(context).popUntil(
-                  //(route) => route.settings.name == Routes.notesOverviewPage,
-                  //);
-                  //todo hallo whats going on here.
-                  //AutoRouter.of(context).popUntil((route) =>
-                  //route.settings.name == Router.NotesOverviewPage.name);
-                  print("sadass");
                   AutoRouter.of(context).pop();
                 },
               );
@@ -123,7 +116,6 @@ class NoteFormPageScaffold extends StatelessWidget {
         title: BlocBuilder<NoteFormBloc, NoteFormState>(
           buildWhen: (p, c) => p.isEditing != c.isEditing,
           builder: (context, state) {
-            print(state.isEditing);
             return Text(state.isEditing ? 'Edit a note' : 'Create a note');
           },
         ),
