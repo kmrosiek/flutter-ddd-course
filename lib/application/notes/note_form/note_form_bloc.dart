@@ -28,6 +28,15 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
     NoteFormEvent event,
   ) async* {
     yield* event.map(
+      initialized: (e) async* {
+        yield e.initialNoteOption.fold(
+          () => state,
+          (initialNote) => state.copyWith(
+            note: initialNote,
+            isEditing: true,
+          ),
+        );
+      },
       bodyChanged: (e) async* {
         yield state.copyWith(
           note: state.note.copyWith(body: NoteBody(e.body)),
@@ -43,8 +52,7 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
       todosChanged: (e) async* {
         yield state.copyWith(
           note: state.note.copyWith(
-              todos: List3(KtList.from(
-                  e.todos.map((primitive) => primitive.toDomain())))),
+              todos: List3(e.todos.map((primitive) => primitive.toDomain()))),
           saveFailureOrSuccessOption: none(),
         );
       },
@@ -60,6 +68,17 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
           failureOrSuccess = state.isEditing
               ? await _noteRepository.update(state.note)
               : await _noteRepository.create(state.note);
+          yield state.copyWith(
+            isSubmitting: false,
+            showErrorMessage: true,
+            saveFailureOrSuccessOption: optionOf(failureOrSuccess),
+          );
+        } else {
+          yield state.copyWith(
+            isSubmitting: false,
+            showErrorMessage: true,
+            saveFailureOrSuccessOption: none(),
+          );
         }
       },
     );

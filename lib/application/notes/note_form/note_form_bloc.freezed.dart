@@ -16,26 +16,32 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NoteFormEventTearOff {
   const _$NoteFormEventTearOff();
 
-  BodyChanged bodyChanged(String body) {
-    return BodyChanged(
+  _Initialized initialized(Option<Note> initialNoteOption) {
+    return _Initialized(
+      initialNoteOption,
+    );
+  }
+
+  _BodyChanged bodyChanged(String body) {
+    return _BodyChanged(
       body,
     );
   }
 
-  ColorChanged colorChanged(Color color) {
-    return ColorChanged(
+  _ColorChanged colorChanged(Color color) {
+    return _ColorChanged(
       color,
     );
   }
 
-  TodoItemAdded todosChanged(List<TodoItemPrimitive> todos) {
-    return TodoItemAdded(
+  _TodoItemAdded todosChanged(KtList<TodoItemPrimitive> todos) {
+    return _TodoItemAdded(
       todos,
     );
   }
 
-  ConfirmPressed confirmPressed() {
-    return const ConfirmPressed();
+  _ConfirmPressed confirmPressed() {
+    return const _ConfirmPressed();
   }
 }
 
@@ -46,35 +52,39 @@ const $NoteFormEvent = _$NoteFormEventTearOff();
 mixin _$NoteFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(List<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
-    TResult Function(List<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BodyChanged value) bodyChanged,
-    required TResult Function(ColorChanged value) colorChanged,
-    required TResult Function(TodoItemAdded value) todosChanged,
-    required TResult Function(ConfirmPressed value) confirmPressed,
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_ConfirmPressed value) confirmPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BodyChanged value)? bodyChanged,
-    TResult Function(ColorChanged value)? colorChanged,
-    TResult Function(TodoItemAdded value)? todosChanged,
-    TResult Function(ConfirmPressed value)? confirmPressed,
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,28 +108,157 @@ class _$NoteFormEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $BodyChangedCopyWith<$Res> {
-  factory $BodyChangedCopyWith(
-          BodyChanged value, $Res Function(BodyChanged) then) =
-      _$BodyChangedCopyWithImpl<$Res>;
+abstract class _$InitializedCopyWith<$Res> {
+  factory _$InitializedCopyWith(
+          _Initialized value, $Res Function(_Initialized) then) =
+      __$InitializedCopyWithImpl<$Res>;
+  $Res call({Option<Note> initialNoteOption});
+}
+
+/// @nodoc
+class __$InitializedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$InitializedCopyWith<$Res> {
+  __$InitializedCopyWithImpl(
+      _Initialized _value, $Res Function(_Initialized) _then)
+      : super(_value, (v) => _then(v as _Initialized));
+
+  @override
+  _Initialized get _value => super._value as _Initialized;
+
+  @override
+  $Res call({
+    Object? initialNoteOption = freezed,
+  }) {
+    return _then(_Initialized(
+      initialNoteOption == freezed
+          ? _value.initialNoteOption
+          : initialNoteOption // ignore: cast_nullable_to_non_nullable
+              as Option<Note>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_Initialized implements _Initialized {
+  const _$_Initialized(this.initialNoteOption);
+
+  @override
+  final Option<Note> initialNoteOption;
+
+  @override
+  String toString() {
+    return 'NoteFormEvent.initialized(initialNoteOption: $initialNoteOption)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Initialized &&
+            (identical(other.initialNoteOption, initialNoteOption) ||
+                const DeepCollectionEquality()
+                    .equals(other.initialNoteOption, initialNoteOption)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(initialNoteOption);
+
+  @JsonKey(ignore: true)
+  @override
+  _$InitializedCopyWith<_Initialized> get copyWith =>
+      __$InitializedCopyWithImpl<_Initialized>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Note> initialNoteOption) initialized,
+    required TResult Function(String body) bodyChanged,
+    required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() confirmPressed,
+  }) {
+    return initialized(initialNoteOption);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Note> initialNoteOption)? initialized,
+    TResult Function(String body)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? confirmPressed,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(initialNoteOption);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_ConfirmPressed value) confirmPressed,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_ConfirmPressed value)? confirmPressed,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized implements NoteFormEvent {
+  const factory _Initialized(Option<Note> initialNoteOption) = _$_Initialized;
+
+  Option<Note> get initialNoteOption => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$InitializedCopyWith<_Initialized> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$BodyChangedCopyWith<$Res> {
+  factory _$BodyChangedCopyWith(
+          _BodyChanged value, $Res Function(_BodyChanged) then) =
+      __$BodyChangedCopyWithImpl<$Res>;
   $Res call({String body});
 }
 
 /// @nodoc
-class _$BodyChangedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
-    implements $BodyChangedCopyWith<$Res> {
-  _$BodyChangedCopyWithImpl(
-      BodyChanged _value, $Res Function(BodyChanged) _then)
-      : super(_value, (v) => _then(v as BodyChanged));
+class __$BodyChangedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$BodyChangedCopyWith<$Res> {
+  __$BodyChangedCopyWithImpl(
+      _BodyChanged _value, $Res Function(_BodyChanged) _then)
+      : super(_value, (v) => _then(v as _BodyChanged));
 
   @override
-  BodyChanged get _value => super._value as BodyChanged;
+  _BodyChanged get _value => super._value as _BodyChanged;
 
   @override
   $Res call({
     Object? body = freezed,
   }) {
-    return _then(BodyChanged(
+    return _then(_BodyChanged(
       body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -130,8 +269,8 @@ class _$BodyChangedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$BodyChanged implements BodyChanged {
-  const _$BodyChanged(this.body);
+class _$_BodyChanged implements _BodyChanged {
+  const _$_BodyChanged(this.body);
 
   @override
   final String body;
@@ -144,7 +283,7 @@ class _$BodyChanged implements BodyChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is BodyChanged &&
+        (other is _BodyChanged &&
             (identical(other.body, body) ||
                 const DeepCollectionEquality().equals(other.body, body)));
   }
@@ -155,15 +294,16 @@ class _$BodyChanged implements BodyChanged {
 
   @JsonKey(ignore: true)
   @override
-  $BodyChangedCopyWith<BodyChanged> get copyWith =>
-      _$BodyChangedCopyWithImpl<BodyChanged>(this, _$identity);
+  _$BodyChangedCopyWith<_BodyChanged> get copyWith =>
+      __$BodyChangedCopyWithImpl<_BodyChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(List<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
     return bodyChanged(body);
@@ -172,9 +312,10 @@ class _$BodyChanged implements BodyChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
-    TResult Function(List<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
   }) {
@@ -187,10 +328,11 @@ class _$BodyChanged implements BodyChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BodyChanged value) bodyChanged,
-    required TResult Function(ColorChanged value) colorChanged,
-    required TResult Function(TodoItemAdded value) todosChanged,
-    required TResult Function(ConfirmPressed value) confirmPressed,
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return bodyChanged(this);
   }
@@ -198,10 +340,11 @@ class _$BodyChanged implements BodyChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BodyChanged value)? bodyChanged,
-    TResult Function(ColorChanged value)? colorChanged,
-    TResult Function(TodoItemAdded value)? todosChanged,
-    TResult Function(ConfirmPressed value)? confirmPressed,
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
     if (bodyChanged != null) {
@@ -211,38 +354,39 @@ class _$BodyChanged implements BodyChanged {
   }
 }
 
-abstract class BodyChanged implements NoteFormEvent {
-  const factory BodyChanged(String body) = _$BodyChanged;
+abstract class _BodyChanged implements NoteFormEvent {
+  const factory _BodyChanged(String body) = _$_BodyChanged;
 
   String get body => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BodyChangedCopyWith<BodyChanged> get copyWith =>
+  _$BodyChangedCopyWith<_BodyChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ColorChangedCopyWith<$Res> {
-  factory $ColorChangedCopyWith(
-          ColorChanged value, $Res Function(ColorChanged) then) =
-      _$ColorChangedCopyWithImpl<$Res>;
+abstract class _$ColorChangedCopyWith<$Res> {
+  factory _$ColorChangedCopyWith(
+          _ColorChanged value, $Res Function(_ColorChanged) then) =
+      __$ColorChangedCopyWithImpl<$Res>;
   $Res call({Color color});
 }
 
 /// @nodoc
-class _$ColorChangedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
-    implements $ColorChangedCopyWith<$Res> {
-  _$ColorChangedCopyWithImpl(
-      ColorChanged _value, $Res Function(ColorChanged) _then)
-      : super(_value, (v) => _then(v as ColorChanged));
+class __$ColorChangedCopyWithImpl<$Res>
+    extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$ColorChangedCopyWith<$Res> {
+  __$ColorChangedCopyWithImpl(
+      _ColorChanged _value, $Res Function(_ColorChanged) _then)
+      : super(_value, (v) => _then(v as _ColorChanged));
 
   @override
-  ColorChanged get _value => super._value as ColorChanged;
+  _ColorChanged get _value => super._value as _ColorChanged;
 
   @override
   $Res call({
     Object? color = freezed,
   }) {
-    return _then(ColorChanged(
+    return _then(_ColorChanged(
       color == freezed
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -253,8 +397,8 @@ class _$ColorChangedCopyWithImpl<$Res> extends _$NoteFormEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ColorChanged implements ColorChanged {
-  const _$ColorChanged(this.color);
+class _$_ColorChanged implements _ColorChanged {
+  const _$_ColorChanged(this.color);
 
   @override
   final Color color;
@@ -267,7 +411,7 @@ class _$ColorChanged implements ColorChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is ColorChanged &&
+        (other is _ColorChanged &&
             (identical(other.color, color) ||
                 const DeepCollectionEquality().equals(other.color, color)));
   }
@@ -278,15 +422,16 @@ class _$ColorChanged implements ColorChanged {
 
   @JsonKey(ignore: true)
   @override
-  $ColorChangedCopyWith<ColorChanged> get copyWith =>
-      _$ColorChangedCopyWithImpl<ColorChanged>(this, _$identity);
+  _$ColorChangedCopyWith<_ColorChanged> get copyWith =>
+      __$ColorChangedCopyWithImpl<_ColorChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(List<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
     return colorChanged(color);
@@ -295,9 +440,10 @@ class _$ColorChanged implements ColorChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
-    TResult Function(List<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
   }) {
@@ -310,10 +456,11 @@ class _$ColorChanged implements ColorChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BodyChanged value) bodyChanged,
-    required TResult Function(ColorChanged value) colorChanged,
-    required TResult Function(TodoItemAdded value) todosChanged,
-    required TResult Function(ConfirmPressed value) confirmPressed,
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return colorChanged(this);
   }
@@ -321,10 +468,11 @@ class _$ColorChanged implements ColorChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BodyChanged value)? bodyChanged,
-    TResult Function(ColorChanged value)? colorChanged,
-    TResult Function(TodoItemAdded value)? todosChanged,
-    TResult Function(ConfirmPressed value)? confirmPressed,
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
     if (colorChanged != null) {
@@ -334,54 +482,54 @@ class _$ColorChanged implements ColorChanged {
   }
 }
 
-abstract class ColorChanged implements NoteFormEvent {
-  const factory ColorChanged(Color color) = _$ColorChanged;
+abstract class _ColorChanged implements NoteFormEvent {
+  const factory _ColorChanged(Color color) = _$_ColorChanged;
 
   Color get color => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ColorChangedCopyWith<ColorChanged> get copyWith =>
+  _$ColorChangedCopyWith<_ColorChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TodoItemAddedCopyWith<$Res> {
-  factory $TodoItemAddedCopyWith(
-          TodoItemAdded value, $Res Function(TodoItemAdded) then) =
-      _$TodoItemAddedCopyWithImpl<$Res>;
-  $Res call({List<TodoItemPrimitive> todos});
+abstract class _$TodoItemAddedCopyWith<$Res> {
+  factory _$TodoItemAddedCopyWith(
+          _TodoItemAdded value, $Res Function(_TodoItemAdded) then) =
+      __$TodoItemAddedCopyWithImpl<$Res>;
+  $Res call({KtList<TodoItemPrimitive> todos});
 }
 
 /// @nodoc
-class _$TodoItemAddedCopyWithImpl<$Res>
+class __$TodoItemAddedCopyWithImpl<$Res>
     extends _$NoteFormEventCopyWithImpl<$Res>
-    implements $TodoItemAddedCopyWith<$Res> {
-  _$TodoItemAddedCopyWithImpl(
-      TodoItemAdded _value, $Res Function(TodoItemAdded) _then)
-      : super(_value, (v) => _then(v as TodoItemAdded));
+    implements _$TodoItemAddedCopyWith<$Res> {
+  __$TodoItemAddedCopyWithImpl(
+      _TodoItemAdded _value, $Res Function(_TodoItemAdded) _then)
+      : super(_value, (v) => _then(v as _TodoItemAdded));
 
   @override
-  TodoItemAdded get _value => super._value as TodoItemAdded;
+  _TodoItemAdded get _value => super._value as _TodoItemAdded;
 
   @override
   $Res call({
     Object? todos = freezed,
   }) {
-    return _then(TodoItemAdded(
+    return _then(_TodoItemAdded(
       todos == freezed
           ? _value.todos
           : todos // ignore: cast_nullable_to_non_nullable
-              as List<TodoItemPrimitive>,
+              as KtList<TodoItemPrimitive>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$TodoItemAdded implements TodoItemAdded {
-  const _$TodoItemAdded(this.todos);
+class _$_TodoItemAdded implements _TodoItemAdded {
+  const _$_TodoItemAdded(this.todos);
 
   @override
-  final List<TodoItemPrimitive> todos;
+  final KtList<TodoItemPrimitive> todos;
 
   @override
   String toString() {
@@ -391,7 +539,7 @@ class _$TodoItemAdded implements TodoItemAdded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is TodoItemAdded &&
+        (other is _TodoItemAdded &&
             (identical(other.todos, todos) ||
                 const DeepCollectionEquality().equals(other.todos, todos)));
   }
@@ -402,15 +550,16 @@ class _$TodoItemAdded implements TodoItemAdded {
 
   @JsonKey(ignore: true)
   @override
-  $TodoItemAddedCopyWith<TodoItemAdded> get copyWith =>
-      _$TodoItemAddedCopyWithImpl<TodoItemAdded>(this, _$identity);
+  _$TodoItemAddedCopyWith<_TodoItemAdded> get copyWith =>
+      __$TodoItemAddedCopyWithImpl<_TodoItemAdded>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(List<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
     return todosChanged(todos);
@@ -419,9 +568,10 @@ class _$TodoItemAdded implements TodoItemAdded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
-    TResult Function(List<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
   }) {
@@ -434,10 +584,11 @@ class _$TodoItemAdded implements TodoItemAdded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BodyChanged value) bodyChanged,
-    required TResult Function(ColorChanged value) colorChanged,
-    required TResult Function(TodoItemAdded value) todosChanged,
-    required TResult Function(ConfirmPressed value) confirmPressed,
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return todosChanged(this);
   }
@@ -445,10 +596,11 @@ class _$TodoItemAdded implements TodoItemAdded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BodyChanged value)? bodyChanged,
-    TResult Function(ColorChanged value)? colorChanged,
-    TResult Function(TodoItemAdded value)? todosChanged,
-    TResult Function(ConfirmPressed value)? confirmPressed,
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
     if (todosChanged != null) {
@@ -458,38 +610,39 @@ class _$TodoItemAdded implements TodoItemAdded {
   }
 }
 
-abstract class TodoItemAdded implements NoteFormEvent {
-  const factory TodoItemAdded(List<TodoItemPrimitive> todos) = _$TodoItemAdded;
+abstract class _TodoItemAdded implements NoteFormEvent {
+  const factory _TodoItemAdded(KtList<TodoItemPrimitive> todos) =
+      _$_TodoItemAdded;
 
-  List<TodoItemPrimitive> get todos => throw _privateConstructorUsedError;
+  KtList<TodoItemPrimitive> get todos => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TodoItemAddedCopyWith<TodoItemAdded> get copyWith =>
+  _$TodoItemAddedCopyWith<_TodoItemAdded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConfirmPressedCopyWith<$Res> {
-  factory $ConfirmPressedCopyWith(
-          ConfirmPressed value, $Res Function(ConfirmPressed) then) =
-      _$ConfirmPressedCopyWithImpl<$Res>;
+abstract class _$ConfirmPressedCopyWith<$Res> {
+  factory _$ConfirmPressedCopyWith(
+          _ConfirmPressed value, $Res Function(_ConfirmPressed) then) =
+      __$ConfirmPressedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$ConfirmPressedCopyWithImpl<$Res>
+class __$ConfirmPressedCopyWithImpl<$Res>
     extends _$NoteFormEventCopyWithImpl<$Res>
-    implements $ConfirmPressedCopyWith<$Res> {
-  _$ConfirmPressedCopyWithImpl(
-      ConfirmPressed _value, $Res Function(ConfirmPressed) _then)
-      : super(_value, (v) => _then(v as ConfirmPressed));
+    implements _$ConfirmPressedCopyWith<$Res> {
+  __$ConfirmPressedCopyWithImpl(
+      _ConfirmPressed _value, $Res Function(_ConfirmPressed) _then)
+      : super(_value, (v) => _then(v as _ConfirmPressed));
 
   @override
-  ConfirmPressed get _value => super._value as ConfirmPressed;
+  _ConfirmPressed get _value => super._value as _ConfirmPressed;
 }
 
 /// @nodoc
 
-class _$ConfirmPressed implements ConfirmPressed {
-  const _$ConfirmPressed();
+class _$_ConfirmPressed implements _ConfirmPressed {
+  const _$_ConfirmPressed();
 
   @override
   String toString() {
@@ -498,7 +651,7 @@ class _$ConfirmPressed implements ConfirmPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is ConfirmPressed);
+    return identical(this, other) || (other is _ConfirmPressed);
   }
 
   @override
@@ -507,9 +660,10 @@ class _$ConfirmPressed implements ConfirmPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
-    required TResult Function(List<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
     return confirmPressed();
@@ -518,9 +672,10 @@ class _$ConfirmPressed implements ConfirmPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
-    TResult Function(List<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
   }) {
@@ -533,10 +688,11 @@ class _$ConfirmPressed implements ConfirmPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(BodyChanged value) bodyChanged,
-    required TResult Function(ColorChanged value) colorChanged,
-    required TResult Function(TodoItemAdded value) todosChanged,
-    required TResult Function(ConfirmPressed value) confirmPressed,
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return confirmPressed(this);
   }
@@ -544,10 +700,11 @@ class _$ConfirmPressed implements ConfirmPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(BodyChanged value)? bodyChanged,
-    TResult Function(ColorChanged value)? colorChanged,
-    TResult Function(TodoItemAdded value)? todosChanged,
-    TResult Function(ConfirmPressed value)? confirmPressed,
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
     if (confirmPressed != null) {
@@ -557,8 +714,8 @@ class _$ConfirmPressed implements ConfirmPressed {
   }
 }
 
-abstract class ConfirmPressed implements NoteFormEvent {
-  const factory ConfirmPressed() = _$ConfirmPressed;
+abstract class _ConfirmPressed implements NoteFormEvent {
+  const factory _ConfirmPressed() = _$_ConfirmPressed;
 }
 
 /// @nodoc
