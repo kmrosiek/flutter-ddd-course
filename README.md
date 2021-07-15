@@ -7,4 +7,4 @@ This projects was created with the guidance of [Domain Driven Design Principles 
 <p align="center">
   <img width="30%" src="images/screen.gif">
 </p>
-[![IMAGE ALT TEXT HERE](https://www.youtube.com/watch?v=6HukwEXFFmc&t=5785s)](https://www.youtube.com/watch?v=6HukwEXFFmc&t=5785s)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/6HukwEXFFmc/0.jpg)](https://www.youtube.com/watch?v=6HukwEXFFmc&t)
