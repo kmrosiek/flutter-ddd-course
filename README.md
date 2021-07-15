@@ -1,6 +1,6 @@
 # Note Taking App
 
-The goal of this project was to create an Flutter application that allows users to take notes, save them and access them across different devices.  
+The goal of this project was to create a Flutter application that allows users to take notes, save them and access them across different devices.  
 
 Some of the packages used in the project:
 - firebase
