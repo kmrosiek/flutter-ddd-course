@@ -7,6 +7,7 @@ class NoteFormState with _$NoteFormState {
     required bool isSubmitting,
     required bool isEditing,
     required bool showErrorMessage,
+    required bool addedTodo,
     required Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption,
   }) = _NoteFormState;
 
@@ -15,6 +16,7 @@ class NoteFormState with _$NoteFormState {
         isSubmitting: false,
         isEditing: false,
         showErrorMessage: false,
+        addedTodo: false,
         saveFailureOrSuccessOption: none(),
       );
 }

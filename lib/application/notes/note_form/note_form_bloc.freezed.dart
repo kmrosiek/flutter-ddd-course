@@ -34,8 +34,14 @@ class _$NoteFormEventTearOff {
     );
   }
 
-  _TodoItemAdded todosChanged(KtList<TodoItemPrimitive> todos) {
+  _TodoItemAdded todosAdded(KtList<TodoItemPrimitive> todos) {
     return _TodoItemAdded(
+      todos,
+    );
+  }
+
+  _TodoItemChanged todosChanged(KtList<TodoItemPrimitive> todos) {
+    return _TodoItemChanged(
       todos,
     );
   }
@@ -55,6 +61,7 @@ mixin _$NoteFormEvent {
     required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosAdded,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) =>
@@ -64,6 +71,7 @@ mixin _$NoteFormEvent {
     TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosAdded,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
@@ -74,7 +82,8 @@ mixin _$NoteFormEvent {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
-    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_TodoItemAdded value) todosAdded,
+    required TResult Function(_TodoItemChanged value) todosChanged,
     required TResult Function(_ConfirmPressed value) confirmPressed,
   }) =>
       throw _privateConstructorUsedError;
@@ -83,7 +92,8 @@ mixin _$NoteFormEvent {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
-    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_TodoItemAdded value)? todosAdded,
+    TResult Function(_TodoItemChanged value)? todosChanged,
     TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) =>
@@ -176,6 +186,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosAdded,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
@@ -188,6 +199,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosAdded,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
@@ -204,7 +216,8 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
-    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_TodoItemAdded value) todosAdded,
+    required TResult Function(_TodoItemChanged value) todosChanged,
     required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return initialized(this);
@@ -216,7 +229,8 @@ class _$_Initialized implements _Initialized {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
-    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_TodoItemAdded value)? todosAdded,
+    TResult Function(_TodoItemChanged value)? todosChanged,
     TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
@@ -303,6 +317,7 @@ class _$_BodyChanged implements _BodyChanged {
     required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosAdded,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
@@ -315,6 +330,7 @@ class _$_BodyChanged implements _BodyChanged {
     TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosAdded,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
@@ -331,7 +347,8 @@ class _$_BodyChanged implements _BodyChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
-    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_TodoItemAdded value) todosAdded,
+    required TResult Function(_TodoItemChanged value) todosChanged,
     required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return bodyChanged(this);
@@ -343,7 +360,8 @@ class _$_BodyChanged implements _BodyChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
-    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_TodoItemAdded value)? todosAdded,
+    TResult Function(_TodoItemChanged value)? todosChanged,
     TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
@@ -431,6 +449,7 @@ class _$_ColorChanged implements _ColorChanged {
     required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosAdded,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
@@ -443,6 +462,7 @@ class _$_ColorChanged implements _ColorChanged {
     TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosAdded,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
@@ -459,7 +479,8 @@ class _$_ColorChanged implements _ColorChanged {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
-    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_TodoItemAdded value) todosAdded,
+    required TResult Function(_TodoItemChanged value) todosChanged,
     required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return colorChanged(this);
@@ -471,7 +492,8 @@ class _$_ColorChanged implements _ColorChanged {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
-    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_TodoItemAdded value)? todosAdded,
+    TResult Function(_TodoItemChanged value)? todosChanged,
     TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
@@ -533,7 +555,7 @@ class _$_TodoItemAdded implements _TodoItemAdded {
 
   @override
   String toString() {
-    return 'NoteFormEvent.todosChanged(todos: $todos)';
+    return 'NoteFormEvent.todosAdded(todos: $todos)';
   }
 
   @override
@@ -559,6 +581,140 @@ class _$_TodoItemAdded implements _TodoItemAdded {
     required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosAdded,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
+    required TResult Function() confirmPressed,
+  }) {
+    return todosAdded(todos);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Option<Note> initialNoteOption)? initialized,
+    TResult Function(String body)? bodyChanged,
+    TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosAdded,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
+    TResult Function()? confirmPressed,
+    required TResult orElse(),
+  }) {
+    if (todosAdded != null) {
+      return todosAdded(todos);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialized value) initialized,
+    required TResult Function(_BodyChanged value) bodyChanged,
+    required TResult Function(_ColorChanged value) colorChanged,
+    required TResult Function(_TodoItemAdded value) todosAdded,
+    required TResult Function(_TodoItemChanged value) todosChanged,
+    required TResult Function(_ConfirmPressed value) confirmPressed,
+  }) {
+    return todosAdded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialized value)? initialized,
+    TResult Function(_BodyChanged value)? bodyChanged,
+    TResult Function(_ColorChanged value)? colorChanged,
+    TResult Function(_TodoItemAdded value)? todosAdded,
+    TResult Function(_TodoItemChanged value)? todosChanged,
+    TResult Function(_ConfirmPressed value)? confirmPressed,
+    required TResult orElse(),
+  }) {
+    if (todosAdded != null) {
+      return todosAdded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TodoItemAdded implements NoteFormEvent {
+  const factory _TodoItemAdded(KtList<TodoItemPrimitive> todos) =
+      _$_TodoItemAdded;
+
+  KtList<TodoItemPrimitive> get todos => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$TodoItemAddedCopyWith<_TodoItemAdded> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$TodoItemChangedCopyWith<$Res> {
+  factory _$TodoItemChangedCopyWith(
+          _TodoItemChanged value, $Res Function(_TodoItemChanged) then) =
+      __$TodoItemChangedCopyWithImpl<$Res>;
+  $Res call({KtList<TodoItemPrimitive> todos});
+}
+
+/// @nodoc
+class __$TodoItemChangedCopyWithImpl<$Res>
+    extends _$NoteFormEventCopyWithImpl<$Res>
+    implements _$TodoItemChangedCopyWith<$Res> {
+  __$TodoItemChangedCopyWithImpl(
+      _TodoItemChanged _value, $Res Function(_TodoItemChanged) _then)
+      : super(_value, (v) => _then(v as _TodoItemChanged));
+
+  @override
+  _TodoItemChanged get _value => super._value as _TodoItemChanged;
+
+  @override
+  $Res call({
+    Object? todos = freezed,
+  }) {
+    return _then(_TodoItemChanged(
+      todos == freezed
+          ? _value.todos
+          : todos // ignore: cast_nullable_to_non_nullable
+              as KtList<TodoItemPrimitive>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TodoItemChanged implements _TodoItemChanged {
+  const _$_TodoItemChanged(this.todos);
+
+  @override
+  final KtList<TodoItemPrimitive> todos;
+
+  @override
+  String toString() {
+    return 'NoteFormEvent.todosChanged(todos: $todos)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _TodoItemChanged &&
+            (identical(other.todos, todos) ||
+                const DeepCollectionEquality().equals(other.todos, todos)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(todos);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TodoItemChangedCopyWith<_TodoItemChanged> get copyWith =>
+      __$TodoItemChangedCopyWithImpl<_TodoItemChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Option<Note> initialNoteOption) initialized,
+    required TResult Function(String body) bodyChanged,
+    required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosAdded,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
@@ -571,6 +727,7 @@ class _$_TodoItemAdded implements _TodoItemAdded {
     TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosAdded,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
@@ -587,7 +744,8 @@ class _$_TodoItemAdded implements _TodoItemAdded {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
-    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_TodoItemAdded value) todosAdded,
+    required TResult Function(_TodoItemChanged value) todosChanged,
     required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return todosChanged(this);
@@ -599,7 +757,8 @@ class _$_TodoItemAdded implements _TodoItemAdded {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
-    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_TodoItemAdded value)? todosAdded,
+    TResult Function(_TodoItemChanged value)? todosChanged,
     TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
@@ -610,13 +769,13 @@ class _$_TodoItemAdded implements _TodoItemAdded {
   }
 }
 
-abstract class _TodoItemAdded implements NoteFormEvent {
-  const factory _TodoItemAdded(KtList<TodoItemPrimitive> todos) =
-      _$_TodoItemAdded;
+abstract class _TodoItemChanged implements NoteFormEvent {
+  const factory _TodoItemChanged(KtList<TodoItemPrimitive> todos) =
+      _$_TodoItemChanged;
 
   KtList<TodoItemPrimitive> get todos => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$TodoItemAddedCopyWith<_TodoItemAdded> get copyWith =>
+  _$TodoItemChangedCopyWith<_TodoItemChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -663,6 +822,7 @@ class _$_ConfirmPressed implements _ConfirmPressed {
     required TResult Function(Option<Note> initialNoteOption) initialized,
     required TResult Function(String body) bodyChanged,
     required TResult Function(Color color) colorChanged,
+    required TResult Function(KtList<TodoItemPrimitive> todos) todosAdded,
     required TResult Function(KtList<TodoItemPrimitive> todos) todosChanged,
     required TResult Function() confirmPressed,
   }) {
@@ -675,6 +835,7 @@ class _$_ConfirmPressed implements _ConfirmPressed {
     TResult Function(Option<Note> initialNoteOption)? initialized,
     TResult Function(String body)? bodyChanged,
     TResult Function(Color color)? colorChanged,
+    TResult Function(KtList<TodoItemPrimitive> todos)? todosAdded,
     TResult Function(KtList<TodoItemPrimitive> todos)? todosChanged,
     TResult Function()? confirmPressed,
     required TResult orElse(),
@@ -691,7 +852,8 @@ class _$_ConfirmPressed implements _ConfirmPressed {
     required TResult Function(_Initialized value) initialized,
     required TResult Function(_BodyChanged value) bodyChanged,
     required TResult Function(_ColorChanged value) colorChanged,
-    required TResult Function(_TodoItemAdded value) todosChanged,
+    required TResult Function(_TodoItemAdded value) todosAdded,
+    required TResult Function(_TodoItemChanged value) todosChanged,
     required TResult Function(_ConfirmPressed value) confirmPressed,
   }) {
     return confirmPressed(this);
@@ -703,7 +865,8 @@ class _$_ConfirmPressed implements _ConfirmPressed {
     TResult Function(_Initialized value)? initialized,
     TResult Function(_BodyChanged value)? bodyChanged,
     TResult Function(_ColorChanged value)? colorChanged,
-    TResult Function(_TodoItemAdded value)? todosChanged,
+    TResult Function(_TodoItemAdded value)? todosAdded,
+    TResult Function(_TodoItemChanged value)? todosChanged,
     TResult Function(_ConfirmPressed value)? confirmPressed,
     required TResult orElse(),
   }) {
@@ -727,12 +890,14 @@ class _$NoteFormStateTearOff {
       required bool isSubmitting,
       required bool isEditing,
       required bool showErrorMessage,
+      required bool addedTodo,
       required Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption}) {
     return _NoteFormState(
       note: note,
       isSubmitting: isSubmitting,
       isEditing: isEditing,
       showErrorMessage: showErrorMessage,
+      addedTodo: addedTodo,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption,
     );
   }
@@ -747,6 +912,7 @@ mixin _$NoteFormState {
   bool get isSubmitting => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get showErrorMessage => throw _privateConstructorUsedError;
+  bool get addedTodo => throw _privateConstructorUsedError;
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -765,6 +931,7 @@ abstract class $NoteFormStateCopyWith<$Res> {
       bool isSubmitting,
       bool isEditing,
       bool showErrorMessage,
+      bool addedTodo,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
 
   $NoteCopyWith<$Res> get note;
@@ -785,6 +952,7 @@ class _$NoteFormStateCopyWithImpl<$Res>
     Object? isSubmitting = freezed,
     Object? isEditing = freezed,
     Object? showErrorMessage = freezed,
+    Object? addedTodo = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
@@ -803,6 +971,10 @@ class _$NoteFormStateCopyWithImpl<$Res>
       showErrorMessage: showErrorMessage == freezed
           ? _value.showErrorMessage
           : showErrorMessage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      addedTodo: addedTodo == freezed
+          ? _value.addedTodo
+          : addedTodo // ignore: cast_nullable_to_non_nullable
               as bool,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
           ? _value.saveFailureOrSuccessOption
@@ -831,6 +1003,7 @@ abstract class _$NoteFormStateCopyWith<$Res>
       bool isSubmitting,
       bool isEditing,
       bool showErrorMessage,
+      bool addedTodo,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
 
   @override
@@ -854,6 +1027,7 @@ class __$NoteFormStateCopyWithImpl<$Res>
     Object? isSubmitting = freezed,
     Object? isEditing = freezed,
     Object? showErrorMessage = freezed,
+    Object? addedTodo = freezed,
     Object? saveFailureOrSuccessOption = freezed,
   }) {
     return _then(_NoteFormState(
@@ -873,6 +1047,10 @@ class __$NoteFormStateCopyWithImpl<$Res>
           ? _value.showErrorMessage
           : showErrorMessage // ignore: cast_nullable_to_non_nullable
               as bool,
+      addedTodo: addedTodo == freezed
+          ? _value.addedTodo
+          : addedTodo // ignore: cast_nullable_to_non_nullable
+              as bool,
       saveFailureOrSuccessOption: saveFailureOrSuccessOption == freezed
           ? _value.saveFailureOrSuccessOption
           : saveFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -889,6 +1067,7 @@ class _$_NoteFormState implements _NoteFormState {
       required this.isSubmitting,
       required this.isEditing,
       required this.showErrorMessage,
+      required this.addedTodo,
       required this.saveFailureOrSuccessOption});
 
   @override
@@ -900,11 +1079,13 @@ class _$_NoteFormState implements _NoteFormState {
   @override
   final bool showErrorMessage;
   @override
+  final bool addedTodo;
+  @override
   final Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'NoteFormState(note: $note, isSubmitting: $isSubmitting, isEditing: $isEditing, showErrorMessage: $showErrorMessage, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
+    return 'NoteFormState(note: $note, isSubmitting: $isSubmitting, isEditing: $isEditing, showErrorMessage: $showErrorMessage, addedTodo: $addedTodo, saveFailureOrSuccessOption: $saveFailureOrSuccessOption)';
   }
 
   @override
@@ -922,6 +1103,9 @@ class _$_NoteFormState implements _NoteFormState {
             (identical(other.showErrorMessage, showErrorMessage) ||
                 const DeepCollectionEquality()
                     .equals(other.showErrorMessage, showErrorMessage)) &&
+            (identical(other.addedTodo, addedTodo) ||
+                const DeepCollectionEquality()
+                    .equals(other.addedTodo, addedTodo)) &&
             (identical(other.saveFailureOrSuccessOption,
                     saveFailureOrSuccessOption) ||
                 const DeepCollectionEquality().equals(
@@ -936,6 +1120,7 @@ class _$_NoteFormState implements _NoteFormState {
       const DeepCollectionEquality().hash(isSubmitting) ^
       const DeepCollectionEquality().hash(isEditing) ^
       const DeepCollectionEquality().hash(showErrorMessage) ^
+      const DeepCollectionEquality().hash(addedTodo) ^
       const DeepCollectionEquality().hash(saveFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -950,6 +1135,7 @@ abstract class _NoteFormState implements NoteFormState {
       required bool isSubmitting,
       required bool isEditing,
       required bool showErrorMessage,
+      required bool addedTodo,
       required Option<Either<NoteFailure, Unit>>
           saveFailureOrSuccessOption}) = _$_NoteFormState;
 
@@ -961,6 +1147,8 @@ abstract class _NoteFormState implements NoteFormState {
   bool get isEditing => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessage => throw _privateConstructorUsedError;
+  @override
+  bool get addedTodo => throw _privateConstructorUsedError;
   @override
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
       throw _privateConstructorUsedError;

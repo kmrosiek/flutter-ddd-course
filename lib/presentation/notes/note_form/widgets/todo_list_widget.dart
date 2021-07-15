@@ -11,14 +11,19 @@ import 'package:kt_dart/collection.dart';
 import 'package:provider/provider.dart';
 import 'package:dddcourse/presentation/notes/note_form/misc/build_context_x.dart';
 
-class TodoList extends StatelessWidget {
+class TodoList extends HookWidget {
   const TodoList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final addedTodo = useState(false);
     return BlocListener<NoteFormBloc, NoteFormState>(
-      listenWhen: (p, c) => p.note.todos.isFull != c.note.todos.isFull,
+      listenWhen: (p, c) => p.note.todos.length != c.note.todos.length,
       listener: (context, state) {
+        if (state.addedTodo) {
+          print("Focusing");
+          addedTodo.value = true;
+        }
         if (state.note.todos.isFull) {
           FlushbarHelper.createAction(
             message: 'Want longer lists? Activate premium 🤩',
@@ -55,6 +60,10 @@ class TodoList extends StatelessWidget {
                         .animate(dragAnimation),
                     child: TodoTile(
                       index: index,
+                      focused:
+                          (index + 1 == formTodos.value.size && addedTodo.value)
+                              ? true
+                              : false,
                       elevation: dragAnimation.value * 4,
                     ),
                   );
@@ -68,22 +77,51 @@ class TodoList extends StatelessWidget {
   }
 }
 
-class TodoTile extends HookWidget {
+class TodoTile extends StatefulWidget {
   final int index;
   final double elevation;
+  final bool focused;
 
   const TodoTile({
+    Key? key,
     required this.index,
     double? elevation,
-    Key? key,
+    bool? focused,
   })  : elevation = elevation ?? 0,
+        focused = focused ?? false,
         super(key: key);
 
   @override
+  _TodoTileState createState() => _TodoTileState();
+}
+
+class _TodoTileState extends State<TodoTile> {
+  late FocusNode textFieldFocus;
+  final textEditingController = TextEditingController();
+  late TodoItemPrimitive todo;
+  @override
+  void initState() {
+    super.initState();
+    textFieldFocus = FocusNode();
+    todo = context.formTodos
+        .getOrElse(widget.index, (_) => TodoItemPrimitive.empty());
+    textEditingController.text = todo.name;
+  }
+
+  @override
+  void dispose() {
+    textFieldFocus.dispose();
+    textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final todo =
-        context.formTodos.getOrElse(index, (_) => TodoItemPrimitive.empty());
-    final textEditingController = useTextEditingController(text: todo.name);
+    todo = context.formTodos
+        .getOrElse(widget.index, (_) => TodoItemPrimitive.empty());
+    if (widget.focused) {
+      textFieldFocus.requestFocus();
+    }
 
     return Slidable(
       actionPane: const SlidableDrawerActionPane(),
@@ -104,7 +142,7 @@ class TodoTile extends HookWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
         child: Material(
-          elevation: elevation,
+          elevation: widget.elevation,
           animationDuration: const Duration(milliseconds: 50),
           borderRadius: BorderRadius.circular(8),
           child: Container(
@@ -116,6 +154,7 @@ class TodoTile extends HookWidget {
               leading: Checkbox(
                 value: todo.done,
                 onChanged: (value) {
+                  print("Clicked");
                   context.formTodos = context.formTodos.map(
                     (listTodo) => listTodo == todo
                         ? todo.copyWith(done: value ?? false)
@@ -130,6 +169,7 @@ class TodoTile extends HookWidget {
                 child: Icon(Icons.list),
               ),
               title: TextFormField(
+                focusNode: textFieldFocus,
                 controller: textEditingController,
                 decoration: const InputDecoration(
                   hintText: 'Todo',
@@ -157,7 +197,7 @@ class TodoTile extends HookWidget {
                       .fold(
                         // Failure stemming from the TodoList length should NOT be displayed by the individual TextFormFields
                         (f) => null,
-                        (todoList) => todoList[index].name.value.fold(
+                        (todoList) => todoList[widget.index].name.value.fold(
                               (f) => f.maybeMap(
                                 empty: (_) => 'Cannot be empty',
                                 exceedingLength: (_) => 'Too long',
