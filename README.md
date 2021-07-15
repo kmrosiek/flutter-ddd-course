@@ -12,7 +12,7 @@ Some of the packages used in the project:
 - google sign in  
   
   
-This projects was created with the guidance of [Domain Driven Design Principles Course by Matt Resetar](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U)
+This project was created with the guidance of [Domain Driven Design Principles Course by Matt Resetar](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U)
 
 ## Demo
 <p align="center">
