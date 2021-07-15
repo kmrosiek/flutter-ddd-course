@@ -18,4 +18,3 @@ This project was created with the guidance of [Domain Driven Design Principles C
 <p align="center">
   <img width="30%" src="images/screen.gif">
 </p>
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/6HukwEXFFmc/0.jpg)](https://www.youtube.com/watch?v=6HukwEXFFmc&t)
