@@ -1,16 +1,8 @@
-# dddcourse
+# Note Taking App
 
-A new Flutter project.
+The goal of this project was to create an Flutter application that allows users to take notes, save them and access them across different devices. This projects was created with the guidance of [Domain Driven Design Principles Course by Matt Resetar](https://www.youtube.com/watch?v=RMiN59x3uH0&list=PLB6lc7nQ1n4iS5p-IezFFgqP6YvAJy84U)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Demo
+<p align="center">
+  <img width="30%" src="images/screen.gif">
+</p>
